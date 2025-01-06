@@ -14,7 +14,10 @@ def view(user: Usuario):
 
     if escolha == "1":
         filme = controller.procura_adiciona(input("Digite o nome do Filme: "))
-        user.adicionar_filme(filme)
+        if filme:
+            user.adicionar_filme(filme)
+        else:
+            print("Filme não encontrado")
 
     elif escolha == "2":
         print("\n--- Minha Lista de Filmes ---")
@@ -29,7 +32,7 @@ def view(user: Usuario):
         filme = user.recomendar_aleatorio()
         if filme:
             print("\n--- Filme Recomendado Aleatoriamente ---")
-            print(f"Título: {filme['titulo']}, Ano: {filme['ano']}, Gênero: {filme['genero']}")
+            print(f"Título: {filme['titulo']}, Data de Lançamento: {filme['data_lancamento']}, Gênero: {filme['generos']}")
 
     elif escolha == "4":
         titulo = input("Digite o título do filme que deseja remover: ")

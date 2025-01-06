@@ -2,7 +2,7 @@ import consumer
 from models import Filme
 
 
-def procura_adiciona(titulo: str) -> Filme:
+def procura_adiciona(titulo: str):
     response = consumer.buscarFilme(titulo)
 
     if len(response['results']) > 0:
@@ -14,11 +14,11 @@ def procura_adiciona(titulo: str) -> Filme:
         escolhida = int(input("Digite o número: "))
         data = response['results'][escolhida-1]
     else:
-        data = response['results'][0]
+        return None
 
-    detalhes_data = consumer.detalhesFilme(filme['id'])
+    detalhes_data = consumer.detalhesFilme(data['id'])
 
-    filme = Filme(filme['original_title'], filme['release_date'], generos(detalhes_data['genres']))
+    filme = Filme(data['original_title'], data['release_date'], generos(detalhes_data['genres']))
 
     return filme
 
