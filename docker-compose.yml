@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  mongodb:
+    image: mongo:6.0 # Versão do MongoDB (ajuste conforme necessário)
+    container_name: mongodb_container
+    restart: always
+    ports:
+      - "27017:27017" # Porta do MongoDB no host
+    volumes:
+      - mongo_data:/data/db # Persistência de dados
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin # Usuário root
+      MONGO_INITDB_ROOT_PASSWORD: admin # Senha do usuário root
+
+volumes:
+  mongo_data: # Volume para persistência de dados
