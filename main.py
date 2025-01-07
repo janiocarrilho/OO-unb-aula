@@ -7,8 +7,7 @@ def main():
     user = Usuario(username)
     user.cadastrar_user()
 
-    while True:
-        view(user)
+    view(user)
 
 
 if __name__ == "__main__":

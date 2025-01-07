@@ -70,8 +70,10 @@ class Usuario:
         )
         if resultado.modified_count > 0:
             print(f"Filme '{titulo}' removido com sucesso!")
+            print()
         else:
             print(f"Filme '{titulo}' não encontrado na lista.")
+            print()
 
     
 
